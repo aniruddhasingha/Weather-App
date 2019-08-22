@@ -16,3 +16,4 @@ geocode('karnajora', (error, data) => {
 
 })
 
+//console.time
