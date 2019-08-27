@@ -1,13 +1,10 @@
 const getWeather = require('./utils/getWeather')
-console.time('TotalTime')
-let responseCount = 1
-getWeather('karnajora', (forecast, data) => {
-    getWeather('kolkata', (forecast, data) => {
-        console.log(data.location)
-        console.log(forecast.summary)
-        console.timeEnd('TotalTime')
-    })
-    console.log(data.location)
-    console.log(forecast.summary)
-})
 console.log('Starts')
+getWeather('karnajora').then(({ summary }) => {
+    console.log('karnajora')
+    console.log(summary)
+    return getWeather('raiganj')
+}).then(({ summary }) => {
+    console.log('raiganj')
+    console.log(summary)
+})
